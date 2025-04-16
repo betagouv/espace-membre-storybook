@@ -8,7 +8,7 @@ import {
     commonEmailsParameters,
     withEmailClientOverviewFactory,
     withEmailRenderer,
-} from "@em/docs/.storybook/email";
+} from "@docs/.storybook/email";
 import { Domaine, EmailStatusCode } from "@em/src/models/member";
 import { Meta, StoryFn } from "@storybook/react";
 import { addMonths } from "date-fns/addMonths";

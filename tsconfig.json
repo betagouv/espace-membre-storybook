@@ -2,7 +2,7 @@
     "extends": "../tsconfig.json",
     "compilerOptions": {
         "paths": {
-            "@docs/*": ["docs/*"],
+            "@docs/*": ["storybook/*"],
             "@em/*": ["./*"],
             "@/*": ["./src/*"],
             "@config": ["src/server/config/index.ts"],

@@ -13,7 +13,7 @@ import {
     commonEmailsParameters,
     withEmailClientOverviewFactory,
     withEmailRenderer,
-} from "@em/docs/.storybook/email";
+} from "@docs/.storybook/email";
 
 type ComponentType = typeof TeamCompositionEmail;
 const { generateMetaDefault, prepareStory } =

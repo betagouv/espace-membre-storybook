@@ -4,7 +4,7 @@ import {
     commonEmailsParameters,
     withEmailClientOverviewFactory,
     withEmailRenderer,
-} from "@em/docs/.storybook/email";
+} from "@docs/.storybook/email";
 import { MATOMO_SITE_TYPE } from "@em/src/models/actions/service";
 import { Domaine, EmailStatusCode } from "@em/src/models/member";
 import {

@@ -4,7 +4,7 @@ import {
     commonEmailsParameters,
     withEmailClientOverviewFactory,
     withEmailRenderer,
-} from "@em/docs/.storybook/email";
+} from "@docs/.storybook/email";
 import {
     StartupMembersDidNotChangeInXMonthsEmail,
     StartupMembersDidNotChangeInXMonthsEmailTitle,
