@@ -16,7 +16,7 @@ type ComponentType = typeof DepartureReminderInXDaysEmail;
 const { generateMetaDefault, prepareStory } = StoryHelperFactory<ComponentType>();
 
 export default {
-    title: "Emails/Templates/DepartureReminderIn2DaysEmail",
+    title: "Emails/Templates/DepartureReminderIn15DaysEmail",
     component: DepartureReminderInXDaysEmail,
     ...generateMetaDefault({
         parameters: {
@@ -73,7 +73,7 @@ NormalStory.args = {
             content: ""
         },
     ],
-    days: 2,
+    days: 15,
 };
 NormalStory.decorators = [withEmailRenderer];
 NormalStory.play = async ({ canvasElement }) => {
@@ -88,7 +88,7 @@ ClientOverviewStory.args = {
 };
 ClientOverviewStory.decorators = [
     withEmailRenderer,
-    withEmailClientOverviewFactory(DepartureReminderInXDaysEmailTitle({ days: 2 })),
+    withEmailClientOverviewFactory(DepartureReminderInXDaysEmailTitle({ days: 15 })),
 ];
 ClientOverviewStory.play = async ({ canvasElement }) => {
     await playFindEmailStructure(canvasElement);
