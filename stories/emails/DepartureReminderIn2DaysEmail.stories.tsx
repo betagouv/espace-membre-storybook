@@ -7,17 +7,17 @@ import { StoryHelperFactory } from "@docs/.storybook/helpers";
 import { playFindEmailStructure } from "@docs/.storybook/testing";
 import { Domaine, EmailStatusCode } from "@em/src/models/member";
 import {
-    DepartureReminderIn2DaysEmail,
-    DepartureReminderIn2DaysEmailTitle,
-} from "@em/src/server/views/templates/emails/DepartureReminderIn2DaysEmail/DepartureReminderIn2DaysEmail";
+    DepartureReminderInXDaysEmail,
+    DepartureReminderInXDaysEmailTitle,
+} from "@em/src/server/views/templates/emails/DepartureReminderInXDaysEmail/DepartureReminderInXDaysEmail";
 import { Meta, StoryFn } from "@storybook/react";
 
-type ComponentType = typeof DepartureReminderIn2DaysEmail;
+type ComponentType = typeof DepartureReminderInXDaysEmail;
 const { generateMetaDefault, prepareStory } = StoryHelperFactory<ComponentType>();
 
 export default {
     title: "Emails/Templates/DepartureReminderIn2DaysEmail",
-    component: DepartureReminderIn2DaysEmail,
+    component: DepartureReminderInXDaysEmail,
     ...generateMetaDefault({
         parameters: {
             ...commonEmailsParameters,
@@ -31,19 +31,22 @@ export default {
 } as Meta<ComponentType>;
 
 const Template: StoryFn<ComponentType> = (args) => {
-    return <DepartureReminderIn2DaysEmail {...args} />;
+    return <DepartureReminderInXDaysEmail {...args} />;
 };
 
 const NormalStory = Template.bind({});
 NormalStory.args = {
     user: {
-        fullname: "Madeleine Durand",
-        uuid: "",
-        username: "",
-        role: "",
-        missions: [],
-        domaine: Domaine.ANIMATION,
-        primary_email_status: EmailStatusCode.EMAIL_ACTIVE
+        userInfos: {
+            fullname: "Madeleine Durand",
+            uuid: "",
+            username: "",
+            role: "",
+            missions: [],
+            domaine: Domaine.ANIMATION,
+            primary_email_status: EmailStatusCode.EMAIL_ACTIVE
+        },
+        mattermostUsername: ""
     },
     endDate: new Date(),
     jobs: [
@@ -70,6 +73,7 @@ NormalStory.args = {
             content: ""
         },
     ],
+    days: 2,
 };
 NormalStory.decorators = [withEmailRenderer];
 NormalStory.play = async ({ canvasElement }) => {
@@ -84,7 +88,7 @@ ClientOverviewStory.args = {
 };
 ClientOverviewStory.decorators = [
     withEmailRenderer,
-    withEmailClientOverviewFactory(DepartureReminderIn2DaysEmailTitle()),
+    withEmailClientOverviewFactory(DepartureReminderInXDaysEmailTitle()),
 ];
 ClientOverviewStory.play = async ({ canvasElement }) => {
     await playFindEmailStructure(canvasElement);
