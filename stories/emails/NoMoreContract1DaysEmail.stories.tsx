@@ -11,6 +11,7 @@ import {
   } from "@docs/.storybook/email";
   import { Meta, StoryFn } from "@storybook/react";
   import { subDays } from "date-fns";
+import { CommunicationEmailCode, Domaine, EmailStatusCode } from "@em/src/models/member";
   
   type ComponentType = typeof NoMoreContractXDaysEmail;
   const { generateMetaDefault, prepareStory } = StoryHelperFactory<ComponentType>();
@@ -41,15 +42,28 @@ import {
       fullname: "Madeleine Durand",
       missions: [
         {
-          id: "mission-123",
-          end: subDays(new Date(), 1), // hier
+          uuid: "mission-123",
+          end: subDays(new Date(), 1),
+          start: subDays(new Date(), 1),
         },
         {
-          id: "mission-older",
+          uuid: "mission-older",
           end: subDays(new Date(), 30),
+          start: subDays(new Date(), 1),
         },
       ],
+      uuid: "",
+      username: "",
+      role: "",
+      domaine: Domaine.ANIMATION,
+      secondary_email: "",
+      communication_email: CommunicationEmailCode.PRIMARY,
+      primary_email: null,
+      primary_email_status: EmailStatusCode.EMAIL_ACTIVE,
+      primary_email_status_updated_at: new Date(),
+      updated_at: new Date()
     },
+    days: 1,
   };
   NormalStory.decorators = [withEmailRenderer];
   NormalStory.play = async ({ canvasElement }) => {
